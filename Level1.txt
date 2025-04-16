@@ -1,0 +1,11 @@
+
+上 （うえ） = above
+下 （した） = below
+中 （なか） = inside
+右 （みぎ） = right
+左 （ひだり） = left
+前 （まえ） = front
+後 （うしろ） = behind
+外 （そと） = outside
+間 （あいだ） = between
+近く （ちかく） = near

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Kanji Learning - Profile</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="profile.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container profile-container">
+        <div class="profile-header">
+            <h1>漢字 Learn</h1>
+            <h2>Welcome, <span id="username"></span>!</h2>
+        </div>
+        <div class="level-info">
+            <h3>Current Level: <span id="currentLevel">1</span></h3>
+            <div class="progress-bar">
+                <div class="progress" id="levelProgress"></div>
+            </div>
+        </div>
+        <div class="lesson-options">
+            <button class="lesson-btn new-lessons" onclick="startNewLessons()">
+                New Lessons
+                <span id="newLessonsCount" class="count">0</span>
+            </button>
+            <button class="lesson-btn review-lessons" onclick="startReviews()">
+                Review Lessons
+                <span id="reviewCount" class="count">0</span>
+            </button>
+        </div>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>
