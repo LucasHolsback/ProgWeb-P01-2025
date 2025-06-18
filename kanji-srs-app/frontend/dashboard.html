@@ -2,12 +2,96 @@
 <html>
 <head>
   <title>Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --anki-blue: #4A86E8;
+      --anki-blue-dark: #3a6cd9;
+      --anki-text-dark: #333;
+      --anki-text-light: #555;
+      --anki-bg-light: #f4f5f7;
+      --anki-border: #ddd;
+      --anki-focus-border: #99cfff;
+      --anki-success: #27ae60;
+      --anki-error: #e74c3c;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--anki-bg-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--anki-text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px; /* Consistent width with login/register */
+      text-align: center;
+      display: flex; /* Use flex for easy button layout */
+      flex-direction: column;
+      gap: 20px; /* Space out elements evenly */
+    }
+
+    h2 {
+      color: var(--anki-text-dark);
+      margin-bottom: 5px; /* Adjust margin for spacing with gap */
+      font-weight: 700;
+      font-size: 1.8em;
+    }
+
+    .welcome-message {
+      margin-bottom: 20px; /* Add space below the welcome message */
+    }
+
+    button {
+      background-color: var(--anki-blue);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.05em;
+      font-weight: 700;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+      width: 100%; /* Make buttons full width of container */
+    }
+
+    button:hover {
+      background-color: var(--anki-blue-dark);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    /* Style for the logout button if you want it slightly different */
+    .logout-button {
+      background-color: #e74c3c; /* A common "danger" or "exit" color */
+      margin-top: 10px; /* A bit more space above logout */
+    }
+
+    .logout-button:hover {
+      background-color: #c0392b; /* Darker red on hover */
+    }
+  </style>
 </head>
 <body>
-  <h2 id="welcome"></h2>
-  <button onclick="startReview()">Start Reviewing Your Cards</button>
-  <br /><br />
-  <button onclick="logout()">Log Out</button>
+  <div class="container">
+    <h2 id="welcome" class="welcome-message"></h2>
+
+    <button onclick="startReview()">Start Reviewing Your Cards</button>
+    
+    <button class="logout-button" onclick="logout()">Log Out</button>
+  </div>
 
   <script>
     const username = localStorage.getItem('username');
@@ -25,8 +109,8 @@
     }
 
     function logout() {
-      localStorage.removeItem('username');
-      window.location.href = 'login.html';
+      localStorage.removeItem('username'); // Clear stored username
+      window.location.href = 'login.html'; // Redirect to login page
     }
   </script>
 </body>

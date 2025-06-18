@@ -38,9 +38,18 @@ router.post('/submit', (req, res) => {
     (err, uc) => {
       if (err || !uc) return res.status(404).json({ message: 'User card not found' });
 
-      let interval = rating === 'again' ? 1 : Math.max(1, Math.round(uc.interval * multipliers[rating]));
-      const nextReview = new Date();
-      nextReview.setDate(nextReview.getDate() + interval);
+      let interval;
+      let nextReview;
+
+      if (rating === 'again') {
+        interval = 1;
+        nextReview = new Date(); // today
+      } else {
+        interval = Math.max(1, Math.round(uc.interval * multipliers[rating]));
+        nextReview = new Date();
+        nextReview.setDate(nextReview.getDate() + interval);
+      }
+
       const nextReviewStr = nextReview.toISOString().split('T')[0];
 
       db.run(
