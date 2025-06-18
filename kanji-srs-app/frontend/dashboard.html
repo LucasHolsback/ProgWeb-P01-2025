@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <h2 id="welcome"></h2>
+  <button onclick="startReview()">Start Reviewing Your Cards</button>
+  <br /><br />
+  <button onclick="logout()">Log Out</button>
+
+  <script>
+    const username = localStorage.getItem('username');
+    const welcomeText = document.getElementById('welcome');
+
+    if (username) {
+      welcomeText.innerText = `Welcome, ${username}!`;
+    } else {
+      // Not logged in, redirect to login
+      window.location.href = 'login.html';
+    }
+
+    function startReview() {
+      window.location.href = 'review.html'; // To be created
+    }
+
+    function logout() {
+      localStorage.removeItem('username');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
